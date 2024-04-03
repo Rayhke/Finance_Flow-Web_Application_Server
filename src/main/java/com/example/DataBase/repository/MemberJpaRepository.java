@@ -28,7 +28,7 @@ public class MemberJpaRepository implements MemberRepository {
     @Override
     public Member update(Member member) {
         Member result = em.find(Member.class, member.getId());
-        result.update(member.getPwd());
+        result.update(member.getPwd(), member.getEmail());
         return result;
     }
 

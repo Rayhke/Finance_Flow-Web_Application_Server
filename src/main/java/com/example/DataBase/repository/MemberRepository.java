@@ -8,7 +8,7 @@ public interface MemberRepository {
 
     Member findById(String id); // 로그인
 
-    Member update(Member member);   // 회원정보 수정
+    Member update(Member member);   // 회원정보 수정 (password, email)
 
     String delete(String id);       // 회원탈퇴
 
