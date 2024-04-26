@@ -1,9 +1,9 @@
 package com.example.DataBase;
 
-import com.example.DataBase.repository.MemberJpaRepository;
-import com.example.DataBase.repository.MemberRepository;
-import com.example.DataBase.service.MemberService;
-import com.example.DataBase.service.MemberServiceImpl;
+import com.example.DataBase.repository.UserJpaRepository;
+import com.example.DataBase.repository.UserRepository;
+import com.example.DataBase.service.UserService;
+import com.example.DataBase.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,12 +21,12 @@ public class Config {
     }
 
     @Bean
-    public MemberService memberService() {
-        return new MemberServiceImpl(memberRepository());
+    public UserService userService() {
+        return new UserServiceImpl(userRepository());
     }
 
     @Bean
-    public MemberRepository memberRepository() {
-        return new MemberJpaRepository(em);
+    public UserRepository userRepository() {
+        return new UserJpaRepository(em);
     }
 }

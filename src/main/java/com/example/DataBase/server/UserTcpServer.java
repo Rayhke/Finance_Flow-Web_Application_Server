@@ -1,17 +1,15 @@
-package com.example.DataBase;
+package com.example.DataBase.server;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import com.example.DataBase.server.receiver.UserSocketReceiverImpl;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
-public class TestServer {
+public class UserTcpServer {
+
+    private static final int PORT = 13555;
+
     public static void main(String[] args) {
         start();
     }
@@ -24,21 +22,17 @@ public class TestServer {
             "\n\n\n[ServerSocket bind 처리 후, listen 중]\n\n\n" +
             "==================================================================================");
 
-        try(ServerSocket serverSocket = new ServerSocket(12555)) {
-            while(true) {
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+            while (true) {
                 clientSocket = serverSocket.accept();
-                Thread thread = new SocketReceiver(clientSocket);
+                Thread thread = new UserSocketReceiverImpl(clientSocket);
                 thread.start();
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new IllegalStateException(
                 "==================================================================================" +
                 "\n\n\n[클라이언트 소켓과의 연결 실패] : " + e + "\n\n\n" +
                 "==================================================================================");
-        } finally {
-            try {
-                clientSocket.close();
-            } catch(IOException e) {}
         }
     }
 }
