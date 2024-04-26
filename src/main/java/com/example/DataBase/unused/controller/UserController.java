@@ -1,7 +1,7 @@
-package com.example.DataBase.controller;
+package com.example.DataBase.unused.controller;
 
-import com.example.DataBase.entity.User;
-import com.example.DataBase.service.UserService;
+import com.example.DataBase.unused.entity.User;
+import com.example.DataBase.unused.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

@@ -1,9 +1,9 @@
 package com.example.DataBase;
 
-import com.example.DataBase.repository.UserJpaRepository;
-import com.example.DataBase.repository.UserRepository;
-import com.example.DataBase.service.UserService;
-import com.example.DataBase.service.UserServiceImpl;
+import com.example.DataBase.unused.repository.UserJpaRepository;
+import com.example.DataBase.unused.repository.UserRepository;
+import com.example.DataBase.unused.service.UserService;
+import com.example.DataBase.unused.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

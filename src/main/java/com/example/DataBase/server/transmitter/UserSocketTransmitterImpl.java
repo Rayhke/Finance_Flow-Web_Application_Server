@@ -1,6 +1,6 @@
 package com.example.DataBase.server.transmitter;
 
-import com.example.DataBase.entity.User;
+import com.example.DataBase.unused.entity.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

@@ -1,6 +1,6 @@
 package com.example.DataBase.server.repository;
 
-import com.example.DataBase.entity.User;
+import com.example.DataBase.unused.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

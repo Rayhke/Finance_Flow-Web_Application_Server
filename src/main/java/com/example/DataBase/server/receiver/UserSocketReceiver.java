@@ -1,6 +1,6 @@
 package com.example.DataBase.server.receiver;
 
-import com.example.DataBase.entity.User;
+import com.example.DataBase.unused.entity.User;
 
 public interface UserSocketReceiver {
 

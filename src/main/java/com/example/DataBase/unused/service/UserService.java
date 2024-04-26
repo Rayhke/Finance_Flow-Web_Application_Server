@@ -1,6 +1,6 @@
-package com.example.DataBase.service;
+package com.example.DataBase.unused.service;
 
-import com.example.DataBase.entity.User;
+import com.example.DataBase.unused.entity.User;
 
 public interface UserService {
 
