@@ -1,6 +1,6 @@
-package com.example.DataBase.server.common.entity.receiver;
+package com.example.DataBase.server.common.receiver;
 
-import com.example.DataBase.server.common.entity.repository.UserJpaRepository;
+import com.example.DataBase.server.user.repository.UserJpaRepository;
 import com.example.DataBase.unused.entity.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

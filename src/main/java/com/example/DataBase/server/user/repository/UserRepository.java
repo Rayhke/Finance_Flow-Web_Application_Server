@@ -1,4 +1,4 @@
-package com.example.DataBase.unused.repository;
+package com.example.DataBase.server.user.repository;
 
 import com.example.DataBase.unused.entity.User;
 

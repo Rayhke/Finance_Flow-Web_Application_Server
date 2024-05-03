@@ -1,5 +1,6 @@
-package com.example.DataBase.unused.repository;
+package com.example.DataBase.server.common.repository;
 
+import com.example.DataBase.server.user.repository.UserRepository;
 import com.example.DataBase.unused.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 

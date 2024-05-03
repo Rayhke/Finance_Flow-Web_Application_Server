@@ -1,6 +1,6 @@
 package com.example.DataBase.server;
 
-import com.example.DataBase.server.common.entity.receiver.UserSocketReceiverImpl;
+import com.example.DataBase.server.common.receiver.UserSocketReceiverImpl;
 
 import java.io.IOException;
 import java.net.ServerSocket;

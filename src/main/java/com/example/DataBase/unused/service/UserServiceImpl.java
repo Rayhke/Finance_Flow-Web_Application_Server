@@ -1,7 +1,7 @@
 package com.example.DataBase.unused.service;
 
 import com.example.DataBase.unused.entity.User;
-import com.example.DataBase.unused.repository.UserRepository;
+import com.example.DataBase.server.user.repository.UserRepository;
 
 public class UserServiceImpl implements UserService {
 
