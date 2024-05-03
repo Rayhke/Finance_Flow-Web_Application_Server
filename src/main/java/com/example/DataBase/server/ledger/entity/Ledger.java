@@ -1,4 +1,4 @@
-package com.example.DataBase.server.ledger;
+package com.example.DataBase.server.ledger.entity;
 
 import com.example.DataBase.server.common.entity.commonEntityImpl;
 import com.google.gson.JsonObject;
