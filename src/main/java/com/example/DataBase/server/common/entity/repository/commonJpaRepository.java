@@ -1,6 +1,6 @@
-package com.example.DataBase.server.repository;
+package com.example.DataBase.server.common.entity.repository;
 
-import com.example.DataBase.server.entity.commonEntityImpl;
+import com.example.DataBase.server.common.entity.commonEntityImpl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

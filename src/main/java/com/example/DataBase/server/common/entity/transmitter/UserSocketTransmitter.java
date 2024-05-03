@@ -1,10 +1,8 @@
-package com.example.DataBase.server.receiver;
+package com.example.DataBase.server.common.entity.transmitter;
 
 import com.example.DataBase.unused.entity.User;
 
-public interface UserSocketReceiver {
-
-    String selectMode(String mode, User user);
+public interface UserSocketTransmitter {
 
     String save(User user);
 

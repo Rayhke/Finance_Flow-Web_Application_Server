@@ -1,4 +1,4 @@
-package com.example.DataBase.server.repository;
+package com.example.DataBase.server.common.entity.repository;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;

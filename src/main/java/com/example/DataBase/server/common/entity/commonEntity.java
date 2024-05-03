@@ -1,4 +1,4 @@
-package com.example.DataBase.server.entity;
+package com.example.DataBase.server.common.entity;
 
 public interface commonEntity<ID> {
 

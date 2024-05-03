@@ -1,4 +1,4 @@
-package com.example.DataBase.server.transmitter;
+package com.example.DataBase.server.common.entity.transmitter;
 
 import com.example.DataBase.unused.entity.User;
 import com.google.gson.Gson;

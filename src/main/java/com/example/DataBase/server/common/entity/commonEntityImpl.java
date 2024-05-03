@@ -1,4 +1,4 @@
-package com.example.DataBase.server.entity;
+package com.example.DataBase.server.common.entity;
 
 
 public abstract class commonEntityImpl<ID> implements commonEntity<ID> {

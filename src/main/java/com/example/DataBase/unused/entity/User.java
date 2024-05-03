@@ -1,10 +1,8 @@
 package com.example.DataBase.unused.entity;
 
-import com.example.DataBase.server.entity.commonEntityImpl;
+import com.example.DataBase.server.common.entity.commonEntityImpl;
 import com.google.gson.JsonObject;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,9 +11,7 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
-@Table(name = "user")
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "users")
 public class User extends commonEntityImpl {
 
     @Id
@@ -29,9 +25,9 @@ public class User extends commonEntityImpl {
     private String email;
 
     public User(JsonObject json) {
-        this.id = json.get("user_id").getAsString();
-        this.pwd = json.get("user_pwd").getAsString();
-        this.email = json.get("user_email").getAsString();
+        this.id = json.get("id").getAsString();
+        this.pwd = json.get("pwd").getAsString();
+        this.email = json.get("email").getAsString();
     }
 
     public void update(String pwd, String email) {
@@ -40,7 +36,12 @@ public class User extends commonEntityImpl {
     }
 
     @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
     public String toString() {
-        return "User[id = " + getId() + ", pwd = " + getPwd() + ", email = " + getEmail() + "]";
+        return "User[id = " + getId() + ", pwd = " + pwd + ", email = " + email + "]";
     }
 }

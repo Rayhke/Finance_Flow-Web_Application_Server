@@ -1,7 +1,7 @@
-package com.example.DataBase.server.receiver;
+package com.example.DataBase.server.common.entity.receiver;
 
+import com.example.DataBase.server.common.entity.repository.UserJpaRepository;
 import com.example.DataBase.unused.entity.User;
-import com.example.DataBase.server.repository.UserJpaRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;
@@ -37,7 +37,8 @@ public class UserSocketReceiverImpl extends Thread implements UserSocketReceiver
             String mode = json.get("mode").getAsString();
             User user = new User(json.getAsJsonObject("userDTO"));
 
-            // selectMode(mode, user);
+            selectMode(mode, user);
+
 
             System.out.println("[수행한 절차 : " + mode + " / 반환 결과 : " + selectMode(mode, user) + "]");
 
@@ -67,6 +68,9 @@ public class UserSocketReceiverImpl extends Thread implements UserSocketReceiver
             case "delete":
                 result = delete(user.getId());
                 break;
+            case "login":
+                result = login(user.getId(), user.getPwd());
+                break;
             default:
                 result = "purpose:error/class:UserSocketReceiverImpl/method:selectMode/reason:Wrong input mode";
         }
@@ -95,5 +99,10 @@ public class UserSocketReceiverImpl extends Thread implements UserSocketReceiver
     public String delete(String id) {
         UserJpaRepository jpa = new UserJpaRepository();
         return jpa.delete(id);
+    }
+
+    public String login(String id, String pwd) {
+        UserJpaRepository jpa = new UserJpaRepository();
+        return jpa.login(id, pwd);
     }
 }

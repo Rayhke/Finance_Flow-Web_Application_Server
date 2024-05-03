@@ -1,4 +1,4 @@
-package com.example.DataBase.server.repository;
+package com.example.DataBase.server.common.entity.repository;
 
 import com.example.DataBase.unused.entity.User;
 
@@ -47,6 +47,24 @@ public class UserJpaRepository extends commonJpaRepository<User, String> {
             em.close();
         }
         return "purpose:fail/class:UserJpaRepository.java/method:update/reason:";
+    }
+
+    public String login(String id, String pwd) {
+        EntityManager em = getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try {
+            tx.begin();
+            User result = em.find(User.class, id);
+
+            if (result.getPwd().equals(pwd)) { return "1"; }
+            return "0";
+        } catch (Exception e) {
+            tx.rollback();
+        } finally {
+            em.close();
+        }
+        return "-1";
     }
 
     @Override
