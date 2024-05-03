@@ -1,7 +1,7 @@
 package com.example.DataBase.server.user.repository;
 
 import com.example.DataBase.server.common.repository.commonJpaRepository;
-import com.example.DataBase.unused.entity.User;
+import com.example.DataBase.server.user.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

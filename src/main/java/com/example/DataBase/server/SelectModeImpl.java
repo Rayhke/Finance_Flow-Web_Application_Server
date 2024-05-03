@@ -1,6 +1,5 @@
 package com.example.DataBase.server;
 
-import com.example.DataBase.unused.entity.User;
 import com.google.gson.JsonObject;
 
 /**
@@ -37,7 +36,7 @@ public class SelectModeImpl implements SelectMode {
 
             switch (entity) {
                 case "user":
-                    
+
                     break;
                 case "ledger":
 

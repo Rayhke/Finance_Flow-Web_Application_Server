@@ -1,4 +1,4 @@
-package com.example.DataBase.unused.entity;
+package com.example.DataBase.server.user;
 
 import com.example.DataBase.server.common.entity.commonEntityImpl;
 import com.google.gson.JsonObject;

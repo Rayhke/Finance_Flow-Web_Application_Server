@@ -1,7 +1,7 @@
 package com.example.DataBase.server.common.receiver;
 
 import com.example.DataBase.server.user.repository.UserJpaRepository;
-import com.example.DataBase.unused.entity.User;
+import com.example.DataBase.server.user.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.springframework.stereotype.Component;

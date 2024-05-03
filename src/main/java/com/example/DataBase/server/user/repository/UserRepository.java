@@ -1,6 +1,6 @@
 package com.example.DataBase.server.user.repository;
 
-import com.example.DataBase.unused.entity.User;
+import com.example.DataBase.server.user.User;
 
 public interface UserRepository {
 
