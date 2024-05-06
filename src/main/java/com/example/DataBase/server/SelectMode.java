@@ -4,5 +4,5 @@ import com.google.gson.JsonObject;
 
 public interface SelectMode {
 
-    JsonObject result();
+    String Result(JsonObject json);
 }

@@ -6,10 +6,16 @@ import com.example.DataBase.server.user.entity.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-public class UserJpaRepository extends commonJpaRepository<User, String> {
+public class UserJpaRepository extends commonJpaRepository<User, String> implements UserRepository {
+
+    private final EntityManager em;
+
+    public UserJpaRepository(EntityManager em) {
+        this.em = em;
+    }
 
     public String findByEmail(String pwd, String email) {
-        EntityManager em = getEntityManager();
+        // EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {
@@ -32,7 +38,7 @@ public class UserJpaRepository extends commonJpaRepository<User, String> {
 
     @Override
     public String update(User user) {
-        EntityManager em = getEntityManager();
+        // EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {
@@ -51,7 +57,7 @@ public class UserJpaRepository extends commonJpaRepository<User, String> {
     }
 
     public String login(String id, String pwd) {
-        EntityManager em = getEntityManager();
+        // EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
 
         try {

@@ -1,6 +1,4 @@
 package com.example.DataBase.server.ledger;
 
-public class LedgerHandling {
-
-
+public interface LedgerHandler {
 }

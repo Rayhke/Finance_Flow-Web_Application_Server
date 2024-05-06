@@ -50,7 +50,9 @@ public class Ledger extends commonEntityImpl {
         this.date = dateTranslate(json.get("date").getAsString());
     }
 
+    public void update() {
 
+    }
 
     public Date dateTranslate(String date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

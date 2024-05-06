@@ -34,7 +34,7 @@ public abstract class commonJpaRepository<T, ID> extends commonEntityImpl<ID> im
         return (ID) "purpose:fail/class:commonJpaRepository.java/method:save/reason:";
     }
 
-    @Override
+    /*@Override
     public Optional<T> findById(ID id) {
         EntityManager em = getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -51,6 +51,19 @@ public abstract class commonJpaRepository<T, ID> extends commonEntityImpl<ID> im
             em.close();
         }
         return Optional.empty();
+    }*/
+
+    @Override
+    public T findById(ID id) {
+        EntityManager em = getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+
+        try {
+            return em.find(getEntityClass(), id);
+        } catch (Exception e) {
+
+        }
+        return null;
     }
 
     /**

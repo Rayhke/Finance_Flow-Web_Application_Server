@@ -1,8 +1,9 @@
 package com.example.DataBase;
 
-import com.example.DataBase.server.SelectModeImpl;
+import com.example.DataBase.server.SelectMode;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -24,25 +25,28 @@ public class MultiThreadServer {
     private static ServerSocket serverSocket = null;
     private static ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-    public static void main(String[] args) {
-        startServer();
+    private static SelectMode selectMode = null;
+
+    @Autowired
+    public MultiThreadServer(SelectMode selectMode) {
+        this.selectMode = selectMode;
     }
 
     public static void startServer() {
-
+        
         Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
                     serverSocket = new ServerSocket(PORT);
-                    
+
                     while (true) {
                         Socket socket = serverSocket.accept();
 
                         executorService.execute(() -> {
                             try {
-                                // InetSocketAddress isa = (InetSocketAddress) socket.getRemoteSocketAddress();
-                                // System.out.println("[Server] : '" + isa.getHostName() + "'에서 연결 요청");
+                                InetSocketAddress isa = (InetSocketAddress) socket.getRemoteSocketAddress();
+                                System.out.println("[Server] : '" + isa.getHostName() + "'에서 연결 요청");
 
                                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                                 BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
@@ -52,20 +56,24 @@ public class MultiThreadServer {
                                 Gson gson = new Gson();
                                 JsonObject json = gson.fromJson(input, JsonObject.class);
 
-                                JsonObject result = new SelectModeImpl(json).result();
-                                out.write(result.toString());
+                                String result = selectMode.Result(json);
+                                out.write(result);
                                 out.flush();
 
                                 socket.close();
-                            } catch (IOException e) {}
+                            } catch (IOException e) {
+                                throw new IllegalStateException("" + e.getMessage());
+                            }
                         });
+
                     }
-                    
+
                 } catch (IOException e) {
                     throw new IllegalStateException("[Port 바인딩 오류] : " + e.getMessage());
                 }
             }
         };
+        thread.start();
     }
 
     public static void stopServer() {

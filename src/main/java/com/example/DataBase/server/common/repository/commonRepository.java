@@ -10,7 +10,9 @@ public interface commonRepository<T, ID> extends Repository<T, ID> {
 
     <S extends T> ID save(S entity);
 
-    Optional<T> findById(ID id);
+    // Optional<T> findById(ID id);
+
+    T findById(ID id);
 
     <S extends T> ID update(S entity);
 
